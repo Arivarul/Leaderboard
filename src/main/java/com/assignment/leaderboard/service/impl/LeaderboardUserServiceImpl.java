@@ -2,7 +2,6 @@ package com.assignment.leaderboard.service.impl;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
@@ -29,12 +28,12 @@ public class LeaderboardUserServiceImpl implements LeaderboardUserService
 	private static final Logger log = LoggerFactory.getLogger(LeaderboardUserService.class);
 
 	@Override
-	public Set<UserDetailDTO> getAllUserDetails()
+	public List<UserDetailDTO> getAllUserDetails()
 	{
 		List<UserDetail> userDetailList = userDetailRepo.findAllActiveUsersOrderByPoints();
 		if (!CollectionUtils.isEmpty(userDetailList))
 		{
-			return userDetailList.stream().map(userDetail -> new UserDetailDTO(userDetail)).collect(Collectors.toSet());
+			return userDetailList.stream().map(userDetail -> new UserDetailDTO(userDetail)).collect(Collectors.toList());
 		}
 		log.info("LeaderboardUserService: No Users exist now");
 		return null;

@@ -1,5 +1,6 @@
 package com.assignment.leaderboard.controller;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.validation.Valid;
@@ -35,7 +36,7 @@ import lombok.extern.log4j.Log4j2;
  */
 @Log4j2
 @RestController
-@RequestMapping("/leadershipBoard")
+@RequestMapping("/leaderboard")
 public class LeaderboardController
 {
 	@Autowired
@@ -50,21 +51,21 @@ public class LeaderboardController
 	private static final int STEP_VALUE = 1;
 
 	/**
-	 * Loads the Home Page of the Leadership Board
+	 * Loads the Home Page of the Leader Board
 	 * 
 	 * @return
 	 */
 	@GetMapping(value = "/home")
-	public ResponseEntity<Set<UserDetailDTO>> loadLeadershipBoard()
+	public ResponseEntity<List<UserDetailDTO>> loadLeaderboard()
 	{
-		Set<UserDetailDTO> userDetailSet = leaderboardUserService.getAllUserDetails();
+		List<UserDetailDTO> userDetailSet = leaderboardUserService.getAllUserDetails();
 		if (CollectionUtils.isEmpty(userDetailSet))
 		{
-			return new ResponseEntity<Set<UserDetailDTO>>(HttpStatus.NO_CONTENT);
+			return new ResponseEntity<List<UserDetailDTO>>(HttpStatus.NO_CONTENT);
 		}
 		else
 		{
-			return new ResponseEntity<Set<UserDetailDTO>>(userDetailSet, HttpStatus.OK);
+			return new ResponseEntity<List<UserDetailDTO>>(userDetailSet, HttpStatus.OK);
 		}
 	}
 
@@ -154,7 +155,7 @@ public class LeaderboardController
 	}
 
 	/**
-	 * Adds a new User to the Leadership Board
+	 * Adds a new User to the Leader Board
 	 * 
 	 * @param userDetailDto
 	 * @return
@@ -179,7 +180,7 @@ public class LeaderboardController
 	}
 
 	/**
-	 * Marks the User information from Leadership Board
+	 * Marks the User information from Leader Board
 	 * 
 	 * @return
 	 * @throws LeaderboardException

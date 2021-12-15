@@ -1,10 +1,10 @@
-package com.assignment.leadershipBoard;
+package com.assignment.leaderboard;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LeadershipBoardApplicationTests {
+class LeaderboardApplicationTests {
 
 	@Test
 	void contextLoads() {

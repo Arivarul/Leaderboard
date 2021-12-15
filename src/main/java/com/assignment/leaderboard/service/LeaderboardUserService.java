@@ -1,6 +1,6 @@
 package com.assignment.leaderboard.service;
 
-import java.util.Set;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ public interface LeaderboardUserService
 	 * 
 	 * @return
 	 */
-	public Set<UserDetailDTO> getAllUserDetails();
+	public List<UserDetailDTO> getAllUserDetails();
 
 	/**
 	 * Gets the specific User detail
@@ -28,7 +28,7 @@ public interface LeaderboardUserService
 	public UserDetailDTO getUserDetail(int userId);
 
 	/**
-	 * Adds a new User to the Leadership Board
+	 * Adds a new User to the Leader Board
 	 * 
 	 * @param userDetailDto
 	 * @return
