@@ -6,12 +6,10 @@ import static org.mockito.Mockito.when;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.Assert;
 
 import com.assignment.leaderboard.domain.UserDetail;
@@ -19,7 +17,6 @@ import com.assignment.leaderboard.dto.UserDetailDTO;
 import com.assignment.leaderboard.repository.UserDetailRepository;
 
 @AutoConfigureTestDatabase(replace=Replace.NONE)
-@RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class LeaderboardUserServiceImplTest
 {
