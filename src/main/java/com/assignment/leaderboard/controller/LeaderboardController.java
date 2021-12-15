@@ -1,7 +1,6 @@
 package com.assignment.leaderboard.controller;
 
 import java.util.List;
-import java.util.Set;
 
 import javax.validation.Valid;
 
