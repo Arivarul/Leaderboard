@@ -10,8 +10,10 @@ Pre-requisite
 - Apache Maven (12.0.1)
 - Git version 2.30.1
 - MySQL Ver 8.0.27 
+
+For Development & Testing
 - MySQL Workbench 8.0.27
-- Spring Tool Suite 4 Version: 4.13.0.RELEASE
+- STS: Spring Tool Suite 4 Version: 4.13.0.RELEASE
 - Postman Version 9.4.1
 
 About the Code
@@ -20,6 +22,14 @@ About the Code
 - Included the TableCreationScripts to create the necessary schema and table used by the code
 - Update the application properties based on the host
 - If junits needs to be tested, the application-test properties also requires update
+
+Running the Code
+- Once the Pre-requisite applications are installed
+- We can create the schema as required and run the TableCreationScript (Edit the script based on schema)
+- Update the application and test properties for port number and schema connections
+- Load the application and run maven verify and build
+- In local, we can load this application in an IDE (I used STS) and start the service
+- You can use Postman or Browser to hit the URL and test the scenarios using End-points below
 
 REST End points handled:
 - Please replace localhost and port with the specific server details if hosted online
