@@ -195,7 +195,7 @@ public class LeaderboardController
 		}
 		else
 		{
-			return new ResponseEntity<Boolean>(Boolean.FALSE, HttpStatus.FAILED_DEPENDENCY);
+			return new ResponseEntity<Boolean>(Boolean.FALSE, HttpStatus.EXPECTATION_FAILED);
 		}
 
 	}
