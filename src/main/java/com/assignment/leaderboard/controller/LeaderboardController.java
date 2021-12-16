@@ -57,15 +57,12 @@ public class LeaderboardController
 	@GetMapping(value = "/home")
 	public ResponseEntity<List<UserDetailDTO>> loadLeaderboard()
 	{
-		List<UserDetailDTO> userDetailSet = leaderboardUserService.getAllUserDetails();
-		if (CollectionUtils.isEmpty(userDetailSet))
+		List<UserDetailDTO> userDetailList = leaderboardUserService.getAllUserDetails();
+		if (CollectionUtils.isEmpty(userDetailList))
 		{
 			return new ResponseEntity<List<UserDetailDTO>>(HttpStatus.NO_CONTENT);
 		}
-		else
-		{
-			return new ResponseEntity<List<UserDetailDTO>>(userDetailSet, HttpStatus.OK);
-		}
+		return new ResponseEntity<List<UserDetailDTO>>(userDetailList, HttpStatus.OK);
 	}
 
 	/**
@@ -90,10 +87,7 @@ public class LeaderboardController
 			{
 				return new ResponseEntity<UserDetailDTO>(updatedUserDto, HttpStatus.OK);
 			}
-			else
-			{
-				return new ResponseEntity<UserDetailDTO>(HttpStatus.EXPECTATION_FAILED);
-			}
+			return new ResponseEntity<UserDetailDTO>(HttpStatus.EXPECTATION_FAILED);
 		}
 		return new ResponseEntity<UserDetailDTO>(HttpStatus.NOT_FOUND);
 	}
@@ -113,7 +107,7 @@ public class LeaderboardController
 		if (null != existingUser)
 		{
 			int newPoints = existingUser.getPoints() - STEP_VALUE;
-			if(newPoints < 0)
+			if (newPoints < 0)
 			{
 				log.error("User Point is already at 0. Cannot decrement further");
 				return new ResponseEntity<UserDetailDTO>(HttpStatus.EXPECTATION_FAILED);
@@ -125,10 +119,7 @@ public class LeaderboardController
 			{
 				return new ResponseEntity<UserDetailDTO>(updatedUserDto, HttpStatus.OK);
 			}
-			else
-			{
-				return new ResponseEntity<UserDetailDTO>(HttpStatus.EXPECTATION_FAILED);
-			}
+			return new ResponseEntity<UserDetailDTO>(HttpStatus.EXPECTATION_FAILED);
 		}
 		return new ResponseEntity<UserDetailDTO>(HttpStatus.NOT_FOUND);
 	}
@@ -147,10 +138,7 @@ public class LeaderboardController
 		{
 			return new ResponseEntity<UserDetailDTO>(user, HttpStatus.FOUND);
 		}
-		else
-		{
-			return new ResponseEntity<UserDetailDTO>(HttpStatus.NOT_FOUND);
-		}
+		return new ResponseEntity<UserDetailDTO>(HttpStatus.NOT_FOUND);
 	}
 
 	/**
@@ -172,10 +160,7 @@ public class LeaderboardController
 		{
 			return new ResponseEntity<UserDetailDTO>(user, HttpStatus.ACCEPTED);
 		}
-		else
-		{
-			return new ResponseEntity<UserDetailDTO>(HttpStatus.EXPECTATION_FAILED);
-		}
+		return new ResponseEntity<UserDetailDTO>(HttpStatus.EXPECTATION_FAILED);
 	}
 
 	/**
@@ -192,24 +177,8 @@ public class LeaderboardController
 		{
 			return new ResponseEntity<Boolean>(Boolean.TRUE, HttpStatus.OK);
 		}
-		else
-		{
-			return new ResponseEntity<Boolean>(Boolean.FALSE, HttpStatus.EXPECTATION_FAILED);
-		}
+		return new ResponseEntity<Boolean>(Boolean.FALSE, HttpStatus.EXPECTATION_FAILED);
 
 	}
 
-	/**
-	 * Helps set points to a specific User if manually set in the UI
-	 * 
-	 * @param userId
-	 * @param point
-	 * @return
-	 */
-//	@PutMapping(value = "/{userId}/setPoint/{point}")
-//	public ResponseEntity<UserDetail> decrementUserPoint(@PathVariable(USER_ID) int userId,
-//			@PathVariable(POINT) int point)
-//	{
-//		return null;
-//	}
 }
